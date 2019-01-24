@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="is">
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700|Roboto:700" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  
+  <body>
+      <% if(typeof foundLecture === 'object'){ %> 
+        <header class="heading heading--main">
+            <span class="heading__category"><%=foundLecture.category %></span>
+            <h1 class="heading__title"><%= title %></h1>
+          </header>
+     <% } %>
+
+    <main>

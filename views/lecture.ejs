@@ -1,0 +1,21 @@
+<%- include('header') -%>
+
+  <section class="lecture">
+    <div class="heading" style="background-image: url(&quot;<%=foundLecture.image %>&quot;);">
+      <span class="heading__category"><%= foundLecture.category %> </span>
+      <h1 class="heading__title"><%= title %> </h1>
+    </div>
+    <div class="lecture__content">
+      <div  class="lecture__row">
+        <div class="lecture__col">
+            <%- locals.setContent(foundLecture.content) %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="lecture__footer">
+        <a class="back" href="/">Til baka </a>
+    </div>
+  </section>
+
+<%- include('footer') -%>
