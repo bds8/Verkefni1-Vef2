@@ -26,6 +26,7 @@ async function list(req, res) {
   //saekir  lectures ur lectures.js og setur i data
   const {  lectures } = data;
  
+  // sendir title og lectures yfir lectures.ejs þar sem þau eru birt.
   res.render('lectures', {title, lectures});
 }
 
@@ -42,7 +43,7 @@ async function lecture(req, res, next) {
    return next();
  }
  
-
+// sendir title og foundLectures yfir lecture.ejs þar sem þau eru birt.
  res.render('lecture', {title: foundLecture.title, foundLecture});
 }
 

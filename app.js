@@ -1,30 +1,25 @@
 const path = require('path');
 const express = require('express');
-const lectures = require('./lectures');
 
+const lectures = require('./lectures');
 
 const content = require('./content');
 
 const app = express();
-
+// sendir content 
 app.locals.setContent = content; 
-//app.locals.foo = bar => `foo ${bar}`;
 
 const hostname = '127.0.0.1';
 const port = 3000;
 
 app.set('views', path.join(__dirname, 'views'));
+
 // set the view engine to ejs
 app.set('view engine', 'ejs');
 
 // saekir gogin i public moppunni
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-//  app.get('/', (req, res) => {
-//   //`title` verður aðgengilegt sem breyta í template
-//    res.render('lectures', content);
-//  });
  
  app.use('/', lectures);
 
