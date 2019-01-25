@@ -4,7 +4,7 @@
   "description": "v10",
   "main": "index.js",
   "scripts": {
-    "eslint": "eslint *.js **/*.js",
+    "eslint": "eslint *.js \"**/*.js\"",
     "test": "npm run eslint",
     "start": "node app.js"
     

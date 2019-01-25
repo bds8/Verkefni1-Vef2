@@ -9,7 +9,7 @@ const readFileAsync = util.promisify(fs.readFile);
 // hjalparfall til thess ad na i og lesa gognin.
 async function readList() {
   const data = await readFileAsync('./lectures.json');
-  
+
   // breyta ur streng yfir i object
   const json = JSON.parse(data);
   return json;
@@ -22,29 +22,29 @@ function catchErrors(fn) {
 async function list(req, res) {
   const title = 'Fyrirlestrar';
   const data = await readList();
-  
-  //saekir  lectures ur lectures.js og setur i data
-  const {  lectures } = data;
- 
+
+  // saekir  lectures ur lectures.js og setur i data
+  const { lectures } = data;
+
   // sendir title og lectures yfir lectures.ejs þar sem þau eru birt.
-  res.render('lectures', {title, lectures});
+  res.render('lectures', { title, lectures });
 }
 
-async function lecture(req, res, next) {
- const { slug } = req.params;
+async function lecture(req, res, next) { /* eslint-disable-line */
+  const { slug } = req.params;
 
- const data = await readList();
+  const data = await readList();
 
- const {  lectures } = data;
+  const { lectures } = data;
 
- const foundLecture = lectures.find(a => a.slug === slug);
+  const foundLecture = lectures.find(a => a.slug === slug);
 
- if(!foundLecture){
-   return next();
- }
- 
-// sendir title og foundLectures yfir lecture.ejs þar sem þau eru birt.
- res.render('lecture', {title: foundLecture.title, foundLecture});
+  if (!foundLecture) {
+    return next();
+  }
+
+  // sendir title og foundLectures yfir lecture.ejs þar sem þau eru birt.
+  res.render('lecture', { title: foundLecture.title, foundLecture });
 }
 
 router.get('/', catchErrors(list));
